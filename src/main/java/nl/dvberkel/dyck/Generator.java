@@ -14,8 +14,8 @@ public class Generator {
         this.symbols = Arrays.asList(left, right);
     }
 
-    public String next(String word) {
-        return initialWordOfLength(word.length() + 2);
+    public State next(String word) {
+        return new State(initialWordOfLength(word.length() + 2), 0);
     }
 
     private String initialWordOfLength(int n) {

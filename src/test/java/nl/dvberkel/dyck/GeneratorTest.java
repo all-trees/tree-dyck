@@ -24,9 +24,9 @@ public class GeneratorTest {
     public void shouldGenerateAllDyckWords(){
         Generator generator = new Generator();
 
-        String nextWord = generator.next(word);
+        State nextState = generator.next(word);
 
-        assertThat(nextWord, is(expectedWord));
+        assertThat(nextState.word, is(expectedWord));
     }
 
     @Parameterized.Parameters(name = "next(\"{0}\") is \"{1}\"")
