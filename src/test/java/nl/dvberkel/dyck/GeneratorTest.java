@@ -33,6 +33,7 @@ public class GeneratorTest {
     public static Collection<Object[]> data(){
         Collection<Object[]> data = new ArrayList<Object[]>();
         data.add(new Object[]{ "", "12" });
+        data.add(new Object[]{ "12", "1212" });
         return data;
     }
 }
