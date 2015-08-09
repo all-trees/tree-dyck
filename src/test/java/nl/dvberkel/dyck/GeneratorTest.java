@@ -12,12 +12,12 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(Parameterized.class)
 public class GeneratorTest {
-    private String expectedWord;
+    private State expectedState;
     private State state;
 
-    public GeneratorTest(State state, String expectedWord) {
+    public GeneratorTest(State state, State expectedState) {
         this.state = state;
-        this.expectedWord = expectedWord;
+        this.expectedState = expectedState;
     }
 
     @Test
@@ -26,14 +26,14 @@ public class GeneratorTest {
 
         State nextState = generator.next(state);
 
-        assertThat(nextState.word, is(expectedWord));
+        assertThat(nextState, is(expectedState));
     }
 
     @Parameterized.Parameters(name = "next(\"{0}\") is \"{1}\"")
     public static Collection<Object[]> data(){
         Collection<Object[]> data = new ArrayList<Object[]>();
-        data.add(new Object[]{ new State("", 1), "12" });
-        data.add(new Object[]{ new State("12", 1), "1212" });
+        data.add(new Object[]{ new State("", 1), new State("12", 1) });
+        data.add(new Object[]{ new State("12", 1), new State("1212", 1) });
         return data;
     }
 }
