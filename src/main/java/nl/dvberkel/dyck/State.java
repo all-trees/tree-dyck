@@ -1,13 +1,22 @@
 package nl.dvberkel.dyck;
 
 public class State {
-    public final String word;
-    public final int index;
+    private final String word;
+    private final int index;
 
     public State(String word, int index) {
         this.word = word;
         this.index = index;
     }
+
+    public String word() {
+        return word;
+    }
+
+    public int index() {
+        return index;
+    }
+
 
     @Override
     public boolean equals(Object o) {
