@@ -15,7 +15,7 @@ public class Generator {
     }
 
     public State next(State state) {
-        return new State(initialWordOfLength(state.word.length() + 2), 1);
+        return new State(initialWordOfLength(state.word.length() + 2), 0);
     }
 
     private String initialWordOfLength(int n) {

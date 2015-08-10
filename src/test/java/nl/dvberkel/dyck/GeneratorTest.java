@@ -32,8 +32,8 @@ public class GeneratorTest {
     @Parameterized.Parameters(name = "next(\"{0}\") is \"{1}\"")
     public static Collection<Object[]> data(){
         Collection<Object[]> data = new ArrayList<Object[]>();
-        data.add(new Object[]{ new State("", 1), new State("12", 1) });
-        data.add(new Object[]{ new State("12", 1), new State("1212", 1) });
+        data.add(new Object[]{ new State("", 0), new State("12", 0) });
+        data.add(new Object[]{ new State("12", 0), new State("1212", 0) });
         return data;
     }
 }
