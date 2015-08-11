@@ -18,17 +18,30 @@ public class Generator {
         this.replacement = symbols.get(0) + symbols.get(1);
     }
 
+    /**
+     * Return a {code }
+     *
+     * @param state
+     * @return
+     * @see <a href="http://arxiv.org/abs/1002.2625">Generating and Ranking of Dyck Words</a>
+     */
     public State next(State state) {
-        if (state.index() < state.word().length()) {
-            int j = state.index();
-            while (j < (state.word().length() - 1) && !state.word().substring(j, j + 2).equals(target)) {
-                j++;
+        int currentLength = state.word().length();
+        do {
+            if (state.index() < state.word().length()) {
+                int j = state.index();
+                while (j < (state.word().length() - 1) && !state.word().substring(j, j + 2).equals(target)) {
+                    j++;
+                }
+                if (j < (state.word().length() - 1)) {
+                    String word = state.word();
+                    String nextWord = word.substring(0, j) + replacement + word.substring(j+2);
+                    return state.update(j + 2).push(nextWord, j - 1);
+                }
             }
-            if (j < (state.word().length() - 1)) {
-                throw new IllegalStateException("This does not happen yet");
-            }
-        }
-        return new State(initialWordOfLength(state.word().length() + 2), 0);
+            state = state.pop();
+        } while(state != null);
+        return new State(initialWordOfLength(currentLength + 2), 0);
     }
 
     private String initialWordOfLength(int n) {

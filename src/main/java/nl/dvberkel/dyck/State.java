@@ -19,7 +19,7 @@ public class State {
     }
 
     public State update(int index) {
-        return new State(word, index);
+        return new State(parent, word, index);
     }
 
     public State push(String word, int index) {

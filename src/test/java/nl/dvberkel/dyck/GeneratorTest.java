@@ -34,6 +34,18 @@ public class GeneratorTest {
         Collection<Object[]> data = new ArrayList<Object[]>();
         data.add(new Object[]{ new State("", 0), new State("12", 0) });
         data.add(new Object[]{ new State("12", 0), new State("1212", 0) });
+        data.add(new Object[]{ new State("1212", 0), new State(new State("1212", 3), "1122", 0) });
+        data.add(new Object[]{ new State(new State("1212", 3), "1122", 0), new State("121212", 0) });
+        data.add(new Object[]{ new State("121212", 0), new State(new State("121212", 3), "112212", 0) });
+        data.add(new Object[]{ new State(new State("121212", 3), "112212", 0), new State(new State(new State("121212", 3), "112212", 5), "112122", 2) });
+        data.add(new Object[]{
+                new State(new State(new State("121212", 3), "112212", 5), "112122", 2),
+                new State(new State(new State(new State("121212", 3), "112212", 5), "112122", 4), "111222", 1)
+        });
+        data.add(new Object[]{
+                new State(new State(new State(new State("121212", 3), "112212", 5), "112122", 4), "111222", 1),
+                new State(new State("121212", 5), "121122", 2),
+        });
         return data;
     }
 }
