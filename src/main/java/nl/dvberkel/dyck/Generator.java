@@ -19,10 +19,13 @@ public class Generator {
     }
 
     /**
-     * Return a {code }
+     * Return the next {@code State} after {@code state} as determined by the an algorithm found in
+     * <a href="http://arxiv.org/abs/1002.2625">Generating and Ranking of Dyck Words</a>.
      *
-     * @param state
-     * @return
+     * The returned state is meant to be fed into this method again to for a continuous stream of {@code State}s.
+     *
+     * @param state the {@code State} that is used as a starting ground for the algorithm.
+     * @return the {@code State} following {@code state}.
      * @see <a href="http://arxiv.org/abs/1002.2625">Generating and Ranking of Dyck Words</a>
      */
     public State next(State state) {
