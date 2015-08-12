@@ -44,7 +44,11 @@ public class Generator {
             }
             state = state.pop();
         } while(state != null);
-        return new State(initialWordOfLength(currentLength + 2), 0);
+        return initialStateOfLength(currentLength + 2);
+    }
+
+    public State initialStateOfLength(int n) {
+        return new State(initialWordOfLength(n), 0);
     }
 
     private String initialWordOfLength(int n) {
