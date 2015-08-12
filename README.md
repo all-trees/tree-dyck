@@ -1,2 +1,5 @@
-# tree-dyck
-Code to generate all word of the Dyck language
+tree-dyck
+===========
+
+Code to generate all words of the Dyck language.
+
