@@ -29,15 +29,15 @@ public class Generator {
      * @see <a href="http://arxiv.org/abs/1002.2625">Generating and Ranking of Dyck Words</a>
      */
     public State next(State state) {
-        int currentLength = state.word().length();
+        int currentLength = state.word.length();
         do {
-            if (state.index() < state.word().length()) {
-                int j = state.index();
-                while (j < (state.word().length() - 1) && !state.word().substring(j, j + 2).equals(target)) {
+            if (state.index < state.word.length()) {
+                int j = state.index;
+                while (j < (state.word.length() - 1) && !state.word.substring(j, j + 2).equals(target)) {
                     j++;
                 }
-                if (j < (state.word().length() - 1)) {
-                    String word = state.word();
+                if (j < (state.word.length() - 1)) {
+                    String word = state.word;
                     String nextWord = word.substring(0, j) + replacement + word.substring(j+2);
                     return state.update(j + 2).push(nextWord, j - 1);
                 }

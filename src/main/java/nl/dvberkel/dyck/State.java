@@ -2,8 +2,8 @@ package nl.dvberkel.dyck;
 
 public class State {
     private final State parent;
-    private final String word;
-    private final int index;
+    public final String word;
+    public final int index;
 
     public State(String word, int index) {
         this.parent = null;
@@ -28,14 +28,6 @@ public class State {
 
     public State pop() {
         return parent;
-    }
-
-    public String word() {
-        return word;
-    }
-
-    public int index() {
-        return index;
     }
 
     @Override
